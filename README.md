@@ -1,7 +1,7 @@
 # DB設計
 
 --------------------------------
-## userテーブル
+## usersテーブル
 --------------------------------
 ### カラム
 name string型
@@ -11,7 +11,7 @@ has_many :group_users
 has_many :groups, through: :group_users
 
 --------------------------------
-## groupテーブル
+## groupsテーブル
 --------------------------------
 ### カラム
 name string型
@@ -21,7 +21,7 @@ has_many :group_users
 has_many :users, through: :group_users
 
 --------------------------------
-## group_userテーブル
+## group_usersテーブル
 --------------------------------
 ### カラム
 user_id integer型  
@@ -31,13 +31,13 @@ belongs_to :user
 belongs_to :group
 
 ---------------------------------
-## messageテーブル
+## messagesテーブル
 ---------------------------------
 ### カラム
 body text型  
 image string型  
-user_id integer型  
-group_id integer型
+user_id reference型  
+group_id reference型
 ### アソエーション
 belongs_to :user  
 belongs_to :group

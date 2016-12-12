@@ -1,5 +1,6 @@
 # DB設計
 
+--------------------------------
 ## userテーブル
 --------------------------------
 ### カラム
@@ -9,6 +10,7 @@ has_many :messages
 has_many :group_users
 has_many :groups, through: :group_users
 
+--------------------------------
 ## groupテーブル
 --------------------------------
 ### カラム
@@ -18,6 +20,7 @@ has_many :messages
 has_many :group_users
 has_many :users, through: :group_users
 
+--------------------------------
 ## group_userテーブル
 --------------------------------
 ### カラム
@@ -27,6 +30,7 @@ group_id integer型
 belongs_to :user
 belongs_to :group
 
+---------------------------------
 ## messageテーブル
 ---------------------------------
 ### カラム

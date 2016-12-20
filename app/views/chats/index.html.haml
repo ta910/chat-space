@@ -1,0 +1,51 @@
+%div.flash チャットグループが作成されました。
+%div.main
+  .main_left
+    .main_left_profile
+      %h3 takutobaba
+      %i(class="fa fa-cog fa-lg fa-fw")
+      %i(class="fa fa-pencil-square-o fa-lg fa-fw")
+    .main_left_select
+      %ul
+        %li
+          .name
+            %h2 aaa
+            %h6 bbbbbbbbbbb
+        %li
+          .name
+            %h2 ああああ
+            %h6 まだメッセージはありません。
+        %li
+          .name
+            %h2 あいあいあ
+            %h6 まだメッセージはありません。
+  %div(class="main_right")
+    .main_right_up
+      .main_right_up_info
+        %h1 sampleグループ
+        %h5 Members: takutobaba
+      .main_right_up_edit
+        %a(class="edit-btn") Edit
+    .main_right_message
+      %ul
+        %li
+          .chat
+            %h3 takutobaba
+            %h5 2016/12/29 18:30:30
+            %h4 sss
+        %li
+          .chat
+            %h3 takutobaba
+            %h5 2016/12/29 18:32:32
+            %h4 sss
+        %li
+          .chat
+            %h3 takutobaba
+            %h5 2016/12/29 18:35:23
+            %h4 hhh
+    .main_right_bottom
+      .main_right_bottom_text
+        %textarea(class="message-input" row="1" placeholder="type a message" name="message")
+        %label(class="photo")
+          %i(class="fa fa-picture-o fa-lg fa-fw" aria-hidden="true")
+      %input(class="send-btn" type="submit" name="send" value="Send")

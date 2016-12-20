@@ -1,0 +1,163 @@
+html, body {
+    height: 100%;
+    background-color: #fafafa;
+}
+h1 {
+  font-size: 20px;
+  color: #333333;
+  padding: 35px 0 15px;
+}
+
+h2 {
+  font-size: 15px;
+  color: #FFFFFF;
+  margin: 0 0 5px 0;
+}
+
+h3 {
+  font-size: 16px;
+  display:inline-block;
+}
+
+h4 {
+  font-size: 14px;
+  color: #434A54;
+}
+
+h5 {
+  font-size: 12px;
+  color: #999999;
+}
+
+h6 {
+  font-size: 11px;
+  color: #FFFFFF;
+}
+
+.fa {
+  color: #FFFFFF;
+  float: right;
+}
+
+.flash {
+  height: 30px;
+  width: 100vw;
+  background-color: #38AEF0;
+  text-align: center;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.main {
+  height: 100%;
+  &_left {
+    height: 100%;
+    width: 300px;
+    float: left;
+    background-color: #2f3e51;
+      &_profile {
+        background-color: #253141;
+        width: 300px;
+        height: 100px;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 20px;
+          h3 {
+            color: #FFFFFF;
+            font-weight: bold;
+          }
+      }
+      &_select {
+        padding: 0 20px;
+        li {
+          div {
+            padding: 20px 0;
+          }
+        }
+      }
+  }
+  &_right {
+    height: 100%;
+    width: calc(100% - 300px);
+    float: left;
+    background-color: #e8e8e8;
+    @include clearfix();
+      &_up {
+        height: 100px;
+        background-color: white;
+        padding: 0 40px;
+        border-bottom: 1px solid #eee;
+          &_info {
+            float: left;
+          }
+          &_edit {
+            float: right;
+            a {
+              display:inline-block;
+              margin: 28px 0;
+              line-height: 40px;
+              color: #38aeF0;
+              padding: 0 20px;
+              border: 2px solid;
+              font-size: 14px;
+            }
+          }
+      }
+      &_message {
+        position: relative;
+        background-color: #f8f8f8;
+        padding: 26px 40px 0;
+        height: calc(100% - 220px);
+        h3 {
+          font-weight: bold;
+          color: #434A54;
+          display: inline-block;
+          margin: 0 10px 0 0;
+        }
+        h5 {
+          display: inline-block;
+        }
+        .chat {
+          padding: 20px 0;
+        }
+      }
+      &_bottom {
+        padding: 20px 40px;
+          &_text {
+            width: calc(100vw - 515px);
+            height: 50px;
+            float: left;
+            position: relative;
+            textarea {
+              width: 100%;
+              line-height: 20px;
+              height: 20px;
+              padding: 15px 10px;
+              display: block;
+              border: none;
+            }
+            .photo {
+              position: absolute;
+              top: 18px;
+              left: calc(100vw - 550px);
+              width: 40px;
+              height: 50px;
+              .fa {
+                color: black;
+              }
+            }
+          }
+          .send-btn {
+            background-color: #38aef0;
+            text-align: center;
+            width: 100px;
+            color: #FFF;
+            float: right;
+            display: inline-block;
+            border: none;
+            line-height: 50px;
+          }
+      }
+  }
+}

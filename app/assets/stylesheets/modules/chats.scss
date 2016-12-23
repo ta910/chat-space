@@ -36,7 +36,6 @@ h6 {
 
 .fa {
   color: #FFFFFF;
-  float: right;
 }
 
 .flash {
@@ -63,10 +62,19 @@ h6 {
         display: table-cell;
         vertical-align: middle;
         padding: 0 20px;
-          h3 {
-            color: #FFFFFF;
-            font-weight: bold;
+        h3 {
+          color: #FFFFFF;
+          font-weight: bold;
+        }
+          &_action {
+            float: right;
+            &_edit {
+            margin: 15px 0 15px 3px;
           }
+            &_new {
+            margin: 15px 0 15px 3px;
+          }
+        }
       }
       &_select {
         padding: 0 20px;

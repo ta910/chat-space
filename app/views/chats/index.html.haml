@@ -3,8 +3,11 @@
   .main_left
     .main_left_profile
       %h3 takutobaba
-      %i(class="fa fa-cog fa-lg fa-fw")
-      %i(class="fa fa-pencil-square-o fa-lg fa-fw")
+      .main_left_profile_action
+        %a(class="main_left_profile_action_new")
+          %i(class="fa fa-pencil-square-o fa-lg fa-fw")
+        %a(class="main_left_profile_action_edit" href="users/edit")
+          %i(class="fa fa-cog fa-lg fa-fw")
     .main_left_select
       %ul
         %li

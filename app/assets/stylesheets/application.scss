@@ -1,7 +1,30 @@
-@import "mixin/clearfix";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "reset";
-@import "modules/chats";
-@import "modules/user";
+@import "mixin/clearfix";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/chats";
+@import "modules/user";
 
+
+.alert-notice {
+  height: 30px;
+  width: 100vw;
+  background-color: #38AEF0;
+  text-align: center;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.alert-alert {
+  height: 30px;
+  width: 100vw;
+  background-color: red;
+  text-align: center;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+}

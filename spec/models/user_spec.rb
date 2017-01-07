@@ -2,8 +2,6 @@ require 'rails_helper'
 
 describe User do
   describe 'sign-up' do
-
-
     it "is invalid without a name" do
       user = build(:user, name: "")
       expect(user).not_to be_valid
@@ -35,6 +33,5 @@ describe User do
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
-
   end
 end

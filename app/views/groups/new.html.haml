@@ -19,7 +19,7 @@
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
-            = collection_check_boxes(:post, :user_ids, User.all, :id, :name) do |b|
+            = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
               = b.label { b.check_box + b.text }
             %p.chat-group-user__name
     .chat-group-form__field.clearfix

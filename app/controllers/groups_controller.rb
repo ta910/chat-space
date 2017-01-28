@@ -6,12 +6,12 @@ class GroupsController < ApplicationController
 
   def create
     Group.create(create_params)
-    redirect_to :controller => 'chats', :action => 'index'
+    redirect_to controller: 'chats', action: 'index'
   end
 
   private
   def create_params
-    params.permit(:name)
+    params.require(:group).permit(:name)
   end
 
 end

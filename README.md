@@ -31,7 +31,7 @@ belongs_to :user
 belongs_to :group
 
 ---------------------------------
-## messagesテーブル
+## chatテーブル
 ---------------------------------
 ### カラム
 body text型  

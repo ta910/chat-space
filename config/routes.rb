@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'chats#index'
-  get 'groups/new'    =>     'groups#new'
-  post 'groups'        =>     'groups#create'
+  root 'groups#index'
+  resources :groups, only: [:new, :create, :edit, :update] do
+    resources :chats, only: [:index]
+  end
 end

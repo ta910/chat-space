@@ -40,7 +40,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'bullet'
-  gem 'faker'
 end
 
 group :development do

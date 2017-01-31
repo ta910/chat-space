@@ -7,7 +7,11 @@ class ChatsController < ApplicationController
   end
 
   def create
-    Chat.create(chat_params)
+    @chat = Chat.create(chat_params)
+    if @chat.save
+    else
+      flash[:alert] = "メッセージが入力されていません。"
+    end
     redirect_to group_chats_path(params[:group_id])
   end
 

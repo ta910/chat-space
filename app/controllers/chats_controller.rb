@@ -7,7 +7,7 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.create(chat_params)
+    Chat.create(chat_params)
     redirect_to group_chats_path(params[:group_id])
   end
 

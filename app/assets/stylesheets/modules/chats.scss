@@ -38,6 +38,11 @@ h6 {
   color: #FFFFFF;
 }
 
+.form {
+  float: left;
+  width: 930px;
+}
+
 .main {
   height: 100%;
   &_left {
@@ -131,7 +136,7 @@ h6 {
             height: 50px;
             float: left;
             position: relative;
-            textarea {
+            &_input {
               width: 100%;
               line-height: 20px;
               height: 50px;
@@ -151,6 +156,8 @@ h6 {
             }
           }
           .send-btn {
+            position: absolute;
+            left: 950px;
             background-color: #38aef0;
             text-align: center;
             width: 100px;

@@ -9,24 +9,12 @@
         %a(class="edit-btn" href="/groups/#{@group.id}/edit") Edit
     .main_right_message
       %ul
-        %li
-          .chat
-            %h3 takutobaba
-            %h5 2016/12/29 18:30:30
-            %h4 sss
-        %li
-          .chat
-            %h3 takutobaba
-            %h5 2016/12/29 18:32:32
-            %h4 sss
-        %li
-          .chat
-            %h3 takutobaba
-            %h5 2016/12/29 18:35:23
-            %h4 hhh
+        = render partial: 'chat', collection: @chats
     .main_right_bottom
       .main_right_bottom_text
-        %textarea(class="message-input" row="1" placeholder="type a message" name="message")
-        %label(class="photo")
-          %i(class="fa fa-picture-o fa-lg fa-fw" aria-hidden="true")
-      %input(class="send-btn" type="submit" name="send" value="Send")
+        = form_for [@group, @chat] do |f|
+          .form
+            = f.text_field :body, class: "main_right_bottom_text_input", row: "1", placeholder: "type a message"
+            %label(class="photo")
+              %i(class="fa fa-picture-o fa-lg fa-fw" aria-hidden="true")
+          = f.submit "Send", class: "send-btn"

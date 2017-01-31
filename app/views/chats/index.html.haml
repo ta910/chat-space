@@ -1,33 +1,12 @@
 %div.main
-  .main_left
-    .main_left_profile
-      %h3 takutobaba
-      .main_left_profile_action
-        %a(class="main_left_profile_action_new")
-          %i(class="fa fa-pencil-square-o fa-lg fa-fw")
-        %a(class="main_left_profile_action_edit" href="users/edit")
-          %i(class="fa fa-cog fa-lg fa-fw")
-    .main_left_select
-      %ul
-        %li
-          .name
-            %h2 aaa
-            %h6 bbbbbbbbbbb
-        %li
-          .name
-            %h2.name ああああ
-            %h6 まだメッセージはありません。
-        %li
-          .name
-            %h2.name あいあいあ
-            %h6 まだメッセージはありません。
-  %div(class="main_right")
+  =render 'groups/sidebar'
+  %div.main_right
     .main_right_up
       .main_right_up_info
-        %h1 sampleグループ
+        %h1= @group.name
         %h5 Members: takutobaba
       .main_right_up_edit
-        %a(class="edit-btn") Edit
+        %a(class="edit-btn" href="/groups/#{@group.id}/edit") Edit
     .main_right_message
       %ul
         %li

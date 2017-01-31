@@ -1,0 +1,11 @@
+.main_left
+  .main_left_profile
+    %h3 takutobaba
+    .main_left_profile_action
+      %a.main_left_profile_action_new(href="/groups/new")
+        %i.fa.fa-pencil-square-o.fa-lg.fa-fw
+      %a.main_left_profile_action_edit(href="/users/edit")
+        %i.fa.fa-cog.fa-lg.fa-fw
+  .main_left_select
+    %ul
+      = render partial: 'groups/group', collection: current_user.groups

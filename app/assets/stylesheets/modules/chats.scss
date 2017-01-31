@@ -8,7 +8,7 @@ h1 {
   padding: 35px 0 15px;
 }
 
-.name {
+h2.name {
   font-size: 15px;
   color: #FFFFFF;
   margin: 0 0 5px 0;
@@ -67,11 +67,15 @@ h6 {
         }
       }
       &_select {
-        padding: 0 20px;
         li {
-          div {
+          padding: 0 20px;
+          a {
+            display: block;
             padding: 20px 0;
           }
+        }
+        li:hover {
+          background-color: #E6E6FA
         }
       }
   }

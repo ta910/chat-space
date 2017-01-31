@@ -3,10 +3,9 @@ class CreateChats < ActiveRecord::Migration[5.0]
     create_table :chats do |t|
       t.text                :body
       t.string              :image
-      t.references          :user
-      t.references          :group
+      t.references          :user, index: :true
+      t.references          :group, index: :true
       t.timestamps
-    drop_table :messages
     end
   end
 end

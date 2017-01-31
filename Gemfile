@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'bullet'
 end
 
 group :development do
@@ -55,4 +56,5 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'bootstrap-sass'
+
 

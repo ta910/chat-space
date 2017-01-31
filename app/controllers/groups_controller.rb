@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
 
+  before_action :set_group, only: [:edit, :update]
+
   def index
-    @groups = Group.all
   end
 
   def new
@@ -10,22 +11,24 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.create(group_params)
-    redirect_to "/groups/#{group.id}/chats"
+    redirect_to group_chats_path(group.id)
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    group = Group.find(params[:id])
-    group.update(group_params)
-    redirect_to "/groups/#{params[:id]}/chats"
+    @group.update(group_params)
+    redirect_to group_chats_path(@group.id)
   end
 
   private
   def group_params
     params.require(:group).permit(:name, user_ids: [])
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 
 end

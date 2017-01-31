@@ -2,12 +2,17 @@ class ChatsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @chats = Chat.includes(:group).order("created_at DESC")
+    @chats = @group.chats.order("created_at DESC")
     @chat = Chat.new
   end
 
   def create
-    Chat.create(chat_params)
+    @chat = Chat.create(chat_params)
+    if @chat.save
+      flash[:notice] = "メッセージが送信されました。"
+    else
+      flash[:alert] = "メッセージが入力されていません。"
+    end
     redirect_to group_chats_path(params[:group_id])
   end
 

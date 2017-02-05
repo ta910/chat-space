@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @chats = @group.chats.order("created_at DESC")
+    @chats = @group.chats.order("created_at ASC")
     @chat = Chat.new
   end
 

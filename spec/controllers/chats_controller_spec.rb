@@ -10,12 +10,12 @@ describe ChatsController do
   describe 'GET #index' do
 
     before do
-      get :index, group_id: group
       login_user user
+      get :index, group_id: group
     end
 
-    it "populates an array of chats" do
-      expect(assigns(:chats)).to eq chats
+    it "populates an array of chats ordered by created_at ASC" do
+      expect(assigns(:chats)).to match(chats.sort{|a, b| a.created_at <=> b.created_at })
     end
 
     it "assigns the requested contact to @group" do

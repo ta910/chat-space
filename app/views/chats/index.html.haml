@@ -8,11 +8,11 @@
       .main_right_up_edit
         %a(class="edit-btn" href="/groups/#{@group.id}/edit") Edit
     .main_right_message
-      %ul
+      %ul.chats
         = render partial: 'chat', collection: @chats
     .main_right_bottom
       .main_right_bottom_text
-        = form_for [@group, @chat] do |f|
+        = form_for [@group, @chat], class: "js_chat" do |f|
           .form
             = f.text_field :body, class: "main_right_bottom_text_input", row: "1", placeholder: "type a message"
             %label(class="photo")

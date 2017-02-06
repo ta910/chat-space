@@ -9,11 +9,14 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.create(chat_params)
     if @chat.save
-      flash[:notice] = "メッセージが送信されました。"
+      respond_to do |format|
+        format.html { redirect_to group_chats_path(params[:group_id]) }
+        format.json { render json: @chat }
+    end
     else
       flash[:alert] = "メッセージが入力されていません。"
+      redirect_to group_chats_path(params[:group_id])
     end
-    redirect_to group_chats_path(params[:group_id])
   end
 
   private

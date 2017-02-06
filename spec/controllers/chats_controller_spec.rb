@@ -11,6 +11,7 @@ describe ChatsController do
 
     before do
       get :index, group_id: group
+      login_user user
     end
 
     it "populates an array of chats" do

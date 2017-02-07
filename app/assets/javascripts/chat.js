@@ -5,7 +5,7 @@ $(function() {
     return html;
   }
 
-  $('.js_chat').on('submit', function(e) {
+  $('form').on('submit', function(e) {
     var chat = $(this);
     e.preventDefault();
     $.ajax({
@@ -15,7 +15,7 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.chats').append(html);
+      $('ul.chats').append(html);
       textField.val('');
     })
     .fail(function() {

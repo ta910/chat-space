@@ -1,7 +1,7 @@
 $(function() {
 
   function buildHTML(chat) {
-    var html = '<div class="chat_content">' + '<h3>' + chat.user.name + '</h3>' + '<h5>' + chat.created_at + '</h5>' + '<h4>' + chat.body + '</h4>' + '</div>'
+    var html = '<li class="chat">' + '<div class="chat_content">' + '<h3>' + chat.user.name + '</h3>' + '<h5>' + chat.created_at + '</h5>' + '<h4>' + chat.body + '</h4>' + '</div>' + '</li>'
     return html;
   }
 
@@ -10,7 +10,6 @@ $(function() {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: '/chats.json',
       data: chat,
       dataType: 'json'
     })

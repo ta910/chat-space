@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to group_chats_path(params[:group_id]) }
         format.json { render json: @chat }
-    end
+      end
     else
       flash[:alert] = "メッセージが入力されていません。"
       redirect_to group_chats_path(params[:group_id])

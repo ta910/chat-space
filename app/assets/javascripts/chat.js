@@ -1,7 +1,14 @@
 $(document).on("turbolinks:load", function() {
 
   function buildHTML(chat) {
-    var html = '<li class="chat">' + '<div class="chat_content">' + '<h3>' + chat.name + '</h3>' + '<h5>' + chat.time + '</h5>' + '<h4>' + chat.body + '</h4>' + '</div>' + '</li>'
+    var html =
+      '<li class="chat">'
+      + '<div class="chat_content">'
+      + '<h3>' + chat.name + '</h3>'
+      + '<h5>' + chat.time + '</h5>'
+      + '<h4>' + chat.body + '</h4>'
+      + '</div>'
+      + '</li>'
     return html;
   }
 
@@ -19,7 +26,7 @@ $(document).on("turbolinks:load", function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('ul.chats').append(html);
-      $('form')[0].reset();
+      chat[0].reset();
       $('input').prop('disabled', false);
     })
     .fail(function() {

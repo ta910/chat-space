@@ -8,7 +8,7 @@
       .main_right_up_edit
         %a(class="edit-btn" href="/groups/#{@group.id}/edit") Edit
     .main_right_message
-      %ul
+      %ul.chats
         = render partial: 'chat', collection: @chats
     .main_right_bottom
       .main_right_bottom_text

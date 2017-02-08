@@ -8,15 +8,19 @@ $(document).on("turbolinks:load", function() {
   $('form').on ('submit', function(e) {
     var chat = $(this);
     e.preventDefault();
+    var formdata = new FormData(chat[0]);
+    console.log(formdata);
     $.ajax({
       type: 'POST',
-      data: chat,
+      processData: false,
+      contentType: false,
+      data: formdata,
       dataType: 'json'
     })
     .done(function(data) {
       var html = buildHTML(data);
       $('ul.chats').append(html);
-      textField.val('');
+      chat.get(0).reset()
     })
     .fail(function() {
       alert('error');

@@ -4,6 +4,11 @@ class ChatsController < ApplicationController
     @group = Group.find(params[:group_id])
     @chats = @group.chats.order("created_at ASC")
     @chat = Chat.new
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @group.chat.for_js }
+    end
   end
 
   def create
@@ -11,7 +16,7 @@ class ChatsController < ApplicationController
     if @chat.save
       respond_to do |format|
         format.html { redirect_to group_chats_path(params[:group_id]) }
-        format.json { render json: @chat.to_api_json }
+        format.json { render json: @chat.for_js }
       end
     else
       flash[:alert] = "メッセージが入力されていません。"

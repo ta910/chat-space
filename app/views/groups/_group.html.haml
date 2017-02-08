@@ -1,4 +1,7 @@
 %li
   %a.link(href = "/groups/#{group.id}/chats")
     %h2.name= group.name
-    %h6 bbbbbbbbbbb
+    - if final = group.chats.last
+      %h6=final.body
+    - else
+      %h6 まだメッセージはありません。

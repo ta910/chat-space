@@ -9,7 +9,6 @@ $(document).on("turbolinks:load", function() {
     var chat = $(this);
     e.preventDefault();
     var formdata = new FormData(chat[0]);
-    console.log(formdata);
     $.ajax({
       type: 'POST',
       processData: false,
@@ -20,7 +19,8 @@ $(document).on("turbolinks:load", function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('ul.chats').append(html);
-      chat.get(0).reset()
+      $('form')[0].reset();
+      $('input').prop('disabled', false);
     })
     .fail(function() {
       alert('error');

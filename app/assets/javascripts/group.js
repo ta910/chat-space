@@ -5,8 +5,7 @@ $(function() {
                + '<p class="chat-group-user__name">'
                + person.name
                + '</p>'
-               + '<a class="chat-group-user__btn chat-group-user__btn--add">'
-               + '追加'
+               + '<a class="chat-group-user__btn chat-group-user__btn--add" data-user-id="' + person.id + '">追加'
                + '</a>'
                + '</div>'
     return result
@@ -16,31 +15,26 @@ $(function() {
 
   }
 
-  function SearchUsers (){
+  function SearchUsers() {
     name = $('#search').val();
     $.ajax({
+      url: '/users.json',
       type: 'GET',
       data: { name: name},
       dataType: 'json'
     })
     .done(function(data){
-      html = BuildSearchedUsers(data);
-      $('<div id="user-search-result">').append(html);
+      var html = "";
+      data.forEach(function(person){
+        html += BuildSearchedUsers(person);
+      })
+      $('#user-search-result').html(html);
     })
     .fail(function() {
       alert('error');
     });
-
-
-    html = appendList(person);
-    $('<div id="user-search-result">').append(html);
   }
 
-  $('#search').on('click', searchUsers);
-
-
-
-
-
+  $('#search').on('change keyup', SearchUsers);
 
 });

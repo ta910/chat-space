@@ -1,12 +1,20 @@
 $(document).on("turbolinks:load", function() {
 
   function buildHTML(chat) {
+
+    if (chat.image) {
+      imageHtml = '<img src="' + chat.image + '">'
+    }
+    else {
+      imageHtml = "";
+    };
+
     var html =
       '<li class="chat">'
       + '<div class="chat_content">'
       + '<h3>' + chat.name + '</h3>'
       + '<h5>' + chat.time + '</h5>'
-      + '<h4>' + chat.body + '</h4>'
+      + '<h4>' + chat.body + imageHtml + '</h4>'
       + '</div>'
       + '</li>'
     return html;
@@ -32,5 +40,9 @@ $(document).on("turbolinks:load", function() {
     .fail(function() {
       alert('error');
     });
+  });
+
+  $('#chat_image').on('change', function(){
+    $(this).parents('form#new_chat').submit();
   });
 });

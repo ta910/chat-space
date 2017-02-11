@@ -38,7 +38,6 @@ group :development, :test do
   gem 'rspec-rails', "~> 3.1.0"
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'pry-rails'
-  gem 'better_errors'
   gem 'bullet'
   gem 'faker'
   gem 'rails-controller-testing'
@@ -59,5 +58,4 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-
-
+gem 'carrierwave'

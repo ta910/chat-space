@@ -2,6 +2,9 @@
   %a.link(href = "/groups/#{group.id}/chats")
     %h2.name= group.name
     - if final = group.chats.last
-      %h6=final.body
+      -if final.image?
+        %h6 画像を送信しました。
+      -else
+        %h6=final.body
     - else
       %h6 まだメッセージはありません。

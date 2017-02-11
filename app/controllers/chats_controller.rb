@@ -26,7 +26,7 @@ class ChatsController < ApplicationController
 
   private
   def chat_params
-    params.require(:chat).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
+    params.require(:chat).permit(:body, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
 end

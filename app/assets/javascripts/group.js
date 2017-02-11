@@ -1,4 +1,4 @@
-$(function() {
+$(document).on("turbolinks:load", function() {
 
   function BuildSearchedUsers (person) {
     var result = '<div class="chat-group-user">'
@@ -13,6 +13,7 @@ $(function() {
 
   function BuildAddedUser (id, name){
     var html = '<div class="chat-group-user">'
+             + '<input type="hidden" name="group[user_ids][]" value="' + id + '">'
              + '<p class="chat-group-user__name">'
              + name
              + '</p>'
@@ -27,7 +28,7 @@ $(function() {
     $.ajax({
       url: '/users.json',
       type: 'GET',
-      data: { name: name},
+      data: { name: name },
       dataType: 'json'
     })
     .done(function(data){

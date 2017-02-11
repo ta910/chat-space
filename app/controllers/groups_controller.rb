@@ -8,10 +8,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
-    respond_to do |format|
-      format.html { render :new }
-      format.json { render json: @group }
-    end
   end
 
   def create
@@ -20,10 +16,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.html { render :edit }
-      format.json { render json: @group }
-    end
   end
 
   def update

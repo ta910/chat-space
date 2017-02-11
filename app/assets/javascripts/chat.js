@@ -12,7 +12,7 @@ $(document).on("turbolinks:load", function() {
     return html;
   }
 
-  $('form').on ('submit', function(e) {
+  $('.new_chat').on ('submit', function(e) {
     var chat = $(this);
     e.preventDefault();
     var formdata = new FormData(chat[0]);

@@ -2,12 +2,11 @@ $(document).on("turbolinks:load", function() {
 
   function buildHTML(chat) {
 
+    var imageHtml = ""
+
     if (chat.image) {
       imageHtml = '<img src="' + chat.image + '">'
     }
-    else {
-      imageHtml = "";
-    };
 
     var html =
       '<li class="chat">'

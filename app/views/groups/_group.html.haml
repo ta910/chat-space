@@ -1,10 +1,10 @@
 %li
-  %a.link(href = "/groups/#{group.id}/chats")
+  = link_to group_chats_path(group), class: "chat_link" do
     %h2.name= group.name
     - if final = group.chats.last
       -if final.image?
         %h6 画像を送信しました。
       -else
-        %h6=final.body
+        %h6= final.body
     - else
       %h6 まだメッセージはありません。

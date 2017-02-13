@@ -74,7 +74,7 @@ h6 {
       &_select {
         li {
           padding: 0 20px;
-          a {
+          .chat_link {
             display: block;
             padding: 20px 0;
           }
@@ -157,7 +157,7 @@ h6 {
               .fa {
                 color: black;
               }
-              input{
+              input {
                 display: none;
               }
             }

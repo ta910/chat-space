@@ -74,7 +74,7 @@ h6 {
       &_select {
         li {
           padding: 0 20px;
-          a {
+          .chat_link {
             display: block;
             padding: 20px 0;
           }
@@ -147,12 +147,18 @@ h6 {
             }
             .photo {
               position: absolute;
-              top: 18px;
               left: calc(100vw - 550px);
               width: 40px;
               height: 50px;
+              line-height: 50px;
+              display: inline-block;
+              text-align: center;
+              cursor: pointer;
               .fa {
                 color: black;
+              }
+              input {
+                display: none;
               }
             }
           }

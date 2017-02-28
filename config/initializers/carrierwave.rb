@@ -10,16 +10,14 @@ CarrierWave.configure do |config|
     when 'production'
       config.storage = :fog
       config.fog_directory = 's3user--backet'
-      config.asset_host = 'https://s3.amazonaws.com/s3user--backet'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/3user--backet'
 
     when 'development'
       config.storage = :fog
       config.fog_directory = 's3user--backet'
-      config.asset_host = 'https://s3.amazonaws.com/s3user--backet'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/s3user--backet'
 
     when 'test'
       config.storage = :file
-      config.fog_directory = 's3user--backet'
-      config.asset_host = 'https://s3.amazonaws.com/s3user--backet'
   end
 end

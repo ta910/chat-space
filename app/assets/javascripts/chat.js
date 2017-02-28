@@ -2,7 +2,7 @@ $(document).on("turbolinks:load", function() {
 
   function goBottom() {
     $('.main_right_message').delay(100).animate({
-      scrollTop: $(document).height()
+      scrollTop: $('.main_right_message')[0].scrollHeight
     },1500);
   };
 
@@ -52,8 +52,8 @@ $(document).on("turbolinks:load", function() {
     $(this).parents('form#new_chat').submit();
   });
 
-  setInterval(function(){
-    location.reload();
-  }, 10000);
+  // setInterval(function(){
+  //   location.reload();
+  // }, 10000);
 
 });

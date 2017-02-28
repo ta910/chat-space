@@ -52,4 +52,8 @@ $(document).on("turbolinks:load", function() {
     $(this).parents('form#new_chat').submit();
   });
 
+  setInterval(function(){
+    location.reload();
+  }, 10000);
+
 });

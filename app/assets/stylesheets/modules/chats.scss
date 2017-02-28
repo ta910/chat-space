@@ -72,6 +72,7 @@ h6 {
         }
       }
       &_select {
+        overflow: auto;
         li {
           padding: 0 20px;
           .chat_link {
@@ -116,6 +117,7 @@ h6 {
         background-color: #f8f8f8;
         padding: 26px 40px 0;
         height: calc(100% - 190px);
+        overflow: auto;
         h3 {
           font-weight: bold;
           color: #434A54;

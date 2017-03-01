@@ -25,8 +25,6 @@ $(document).on("turbolinks:load", function() {
     return html;
   }
 
-  goBottom();
-
   $('.new_chat').on ('submit', function(e) {
     var chat = $(this);
     e.preventDefault();

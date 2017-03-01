@@ -54,8 +54,24 @@ $(document).on("turbolinks:load", function() {
     $(this).parents('form#new_chat').submit();
   });
 
-  // setInterval(function(){
-  //   location.reload();
-  // }, 10000);
+  if(window.location.href.match(/chats/)) {
+    setInterval(function(){
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        var allHtml = ""
+        data.forEach(function(chat){
+          allHtml += buildHTML(chat);
+        });
+        $('ul.chats').html(allHtml);
+        goBottom();
+      })
+      .fail(function() {
+        alert('error');
+      });
+    }, 10000);
+  };
 
 });

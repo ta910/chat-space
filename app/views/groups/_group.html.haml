@@ -1,5 +1,5 @@
 %li
-  = link_to group_chats_path(group), class: "chat_link" do
+  = link_to group_chats_path(group), class: "chat_link", 'data-turbolinks': false do
     %h2.name= group.name
     - if final = group.chats.last
       -if final.image?

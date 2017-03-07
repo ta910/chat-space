@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function() {
   function goBottom() {
     $('.main_right_message').delay(100).animate({
       scrollTop: $('.main_right_message')[0].scrollHeight
-    },1500);
+    }, 1500);
   };
 
   function buildHTML(chat) {

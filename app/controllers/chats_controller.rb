@@ -7,7 +7,7 @@ class ChatsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @group.chat.for_js }
+      format.json { render json: @chats.map(&:for_js) }
     end
   end
 

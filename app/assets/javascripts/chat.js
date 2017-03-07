@@ -1,5 +1,11 @@
 $(document).on("turbolinks:load", function() {
 
+  function goBottom() {
+    $('.main_right_message').delay(100).animate({
+      scrollTop: $('.main_right_message')[0].scrollHeight
+    }, 1500);
+  };
+
   function buildHTML(chat) {
 
     var imageHtml = ""
@@ -35,6 +41,7 @@ $(document).on("turbolinks:load", function() {
       $('ul.chats').append(html);
       chat[0].reset();
       $('input').prop('disabled', false);
+      goBottom();
     })
     .fail(function() {
       alert('error');
@@ -44,4 +51,25 @@ $(document).on("turbolinks:load", function() {
   $('#chat_image').on('change', function(){
     $(this).parents('form#new_chat').submit();
   });
+
+  if(window.location.href.match(/chats/)) {
+    setInterval(function(){
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        var allHtml = ""
+        data.forEach(function(chat){
+          allHtml += buildHTML(chat);
+        });
+        $('ul.chats').html(allHtml);
+        goBottom();
+      })
+      .fail(function() {
+        alert('error');
+      });
+    }, 10000);
+  };
+
 });

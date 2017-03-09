@@ -64,3 +64,7 @@ gem 'fog'
 gem 'dotenv'
 gem 'dotenv-rails'
 gem 'config'
+
+group :production do
+  gem 'unicorn'
+end

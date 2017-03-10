@@ -1,6 +1,6 @@
 .main_left
   .main_left_profile
-    %h3 takutobaba
+    %h3= current_user.name
     .main_left_profile_action
       %a.main_left_profile_action_new(href="/groups/new")
         %i.fa.fa-pencil-square-o.fa-lg.fa-fw

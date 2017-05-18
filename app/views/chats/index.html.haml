@@ -13,7 +13,7 @@
         %a(class="edit-btn" href="/groups/#{@group.id}/edit") Edit
     .main_right_message
       %ul.chats
-        = render partial: @chats
+        = render @chats
     .main_right_bottom
       .main_right_bottom_text
         = form_for [@group, @chat] do |f|

@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
     @chat = Chat.new
     respond_to do |format|
       format.html
-      format.json
+      format.json { @chats = @group.chats.where('id > ?', params[:last_id]) }
     end
   end
 

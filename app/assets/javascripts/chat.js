@@ -30,6 +30,28 @@ $(document).on("turbolinks:load", function() {
     return html;
   }
 
+  function autoReload() {
+    var lastId = $('.chat_content').last(0).data('id');
+    $.ajax({
+      type: 'GET',
+      data: { last_id: lastId },
+      dataType: 'json'
+    })
+    .done(function(data) {
+      if (data.chats.length > 0) {
+        var allHtml = ""
+        $.each(data.chats, function(i, chat){
+          allHtml += buildHTML(chat);
+        });
+        $('ul.chats').append(allHtml);
+        goBottom();
+      };
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+
   $('.new_chat').on ('submit', function(e) {
     var chat = $(this);
     e.preventDefault();
@@ -60,22 +82,7 @@ $(document).on("turbolinks:load", function() {
 
   if(window.location.href.match(/chats/)) {
     setInterval(function(){
-      $.ajax({
-        type: 'GET',
-        dataType: 'json',
-      })
-      .done(function(data) {
-        var allHtml = ""
-        data.forEach(function(chat){
-          allHtml += buildHTML(chat);
-        });
-        $('ul.chats').html(allHtml);
-        goBottom();
-      })
-      .fail(function() {
-        alert('error');
-      });
-    }, 10000);
+      autoReload();
+    }, 5000);
   };
-
 });

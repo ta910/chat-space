@@ -1,26 +1,25 @@
 class ChatsController < ApplicationController
 
-  def index
-    @group = Group.find(params[:group_id])
-    @chats = @group.chats.order("created_at ASC")
-    @chat = Chat.new
+  before_action :set_property, only: [:index, :create]
 
+  def index
+    @chat = Chat.new
     respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @chats.map(&:for_js) }
+      format.html
+      format.json
     end
   end
 
   def create
-    @chat = Chat.create(chat_params)
+    @chat = Chat.new(chat_params)
     if @chat.save
       respond_to do |format|
         format.html { redirect_to group_chats_path(params[:group_id]) }
-        format.json { render json: @chat.for_js }
+        format.json
       end
     else
-      flash[:alert] = "メッセージが入力されていません。"
-      redirect_to group_chats_path(params[:group_id])
+      flash.now[:alert] = "メッセージが入力されていません。"
+      render :index
     end
   end
 
@@ -29,4 +28,8 @@ class ChatsController < ApplicationController
     params.require(:chat).permit(:body, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
+  def set_property
+    @group = Group.find(params[:group_id])
+    @chats = @group.chats.order("created_at ASC")
+  end
 end

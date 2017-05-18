@@ -3,12 +3,12 @@ $(document).on("turbolinks:load", function() {
   function goBottom() {
     $('.main_right_message').delay(100).animate({
       scrollTop: $('.main_right_message')[0].scrollHeight
-    }, 3000);
+    }, 'slow', 'swing');
   };
 
   function flash() {
     $(".alert_box").append("<div class='alert-notice'>メッセージが送信されました。</div>");
-    $(".alert-notice").fadeOut(1000);
+    $(".alert-notice").delay(100).fadeOut('slow');
   }
 
   function buildHTML(chat) {
@@ -20,13 +20,13 @@ $(document).on("turbolinks:load", function() {
     }
 
     var html =
-      '<li class="chat">'
-      + '<div class="chat_content">'
-      + '<h3>' + chat.name + '</h3>'
-      + '<h5>' + chat.time + '</h5>'
-      + '<h4>' + chat.body + imageHtml + '</h4>'
-      + '</div>'
-      + '</li>'
+      `<li class="chat">
+        <div class="chat_content" data-id=${chat.id}>
+          <h3>${chat.name}</h3>
+          <h5>${chat.time}</h5>
+          <h4>${chat.body}${imageHtml}</h4>
+        </div>
+       </li>`
     return html;
   }
 

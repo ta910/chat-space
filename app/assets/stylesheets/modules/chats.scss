@@ -73,6 +73,7 @@ h6 {
       }
       &_select {
         overflow: auto;
+        height: calc(100% - 100px);
         li {
           padding: 0 20px;
           .chat_link {

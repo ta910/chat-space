@@ -1,32 +1,26 @@
 $(document).on("turbolinks:load", function() {
 
   function BuildSearchedUsers (person) {
-    var result = '<div class="chat-group-user">'
-               + '<p class="chat-group-user__name">'
-               + person.name
-               + '</p>'
-               + '<a class="chat-group-user__btn chat-group-user__btn--add" data-userid="' + person.id + '" data-username="' + person.name + '">追加'
-               + '</a>'
-               + '</div>'
+    var result = `<div class="chat-group-user">
+                    <p class="chat-group-user__name">${person.name}a</p>
+                    <a class="chat-group-user__btn chat-group-user__btn--add" data-userid=${person.id} data-username=${person.name}>追加</a>
+                  </div>`
     return result
   }
 
   function BuildAddedUser (id, name){
-    var html = '<div class="chat-group-user">'
-             + '<input type="hidden" name="group[user_ids][]" value="' + id + '">'
-             + '<p class="chat-group-user__name">'
-             + name
-             + '</p>'
-             + '<a class="chat-group-user__btn chat-group-user__btn--remove" data-userid="' + id + '">削除'
-             + '</a>'
-             + '</div>'
+    var html = `<div class="chat-group-user">
+                  <input type="hidden" name="group[user_ids][]" value=${id}>
+                  <p class="chat-group-user__name">${name}</p>
+                  <a class="chat-group-user__btn chat-group-user__btn--remove" data-userid=${id}>削除</a>
+                </div>`
     return html;
   }
 
   function SearchUsers() {
     name = $('#search').val();
     $.ajax({
-      url: '/users.json',
+      url: '/users',
       type: 'GET',
       data: { name: name },
       dataType: 'json'

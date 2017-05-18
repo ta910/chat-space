@@ -3,8 +3,13 @@ $(document).on("turbolinks:load", function() {
   function goBottom() {
     $('.main_right_message').delay(100).animate({
       scrollTop: $('.main_right_message')[0].scrollHeight
-    }, 1500);
+    }, 'slow', 'swing');
   };
+
+  function flash() {
+    $(".alert_box").append("<div class='alert-notice'>メッセージが送信されました。</div>");
+    $(".alert-notice").delay(100).fadeOut('slow');
+  }
 
   function buildHTML(chat) {
 
@@ -15,15 +20,37 @@ $(document).on("turbolinks:load", function() {
     }
 
     var html =
-      '<li class="chat">'
-      + '<div class="chat_content">'
-      + '<h3>' + chat.name + '</h3>'
-      + '<h5>' + chat.time + '</h5>'
-      + '<h4>' + chat.body + imageHtml + '</h4>'
-      + '</div>'
-      + '</li>'
+      `<li class="chat">
+        <div class="chat_content" data-id=${chat.id}>
+          <h3>${chat.name}</h3>
+          <h5>${chat.time}</h5>
+          <h4>${chat.body}${imageHtml}</h4>
+        </div>
+       </li>`
     return html;
   }
+
+  function autoReload() {
+    var lastId = $('.chat_content').last(0).data('id');
+    $.ajax({
+      type: 'GET',
+      data: { last_id: lastId },
+      dataType: 'json'
+    })
+    .done(function(data) {
+      if (data.chats.length > 0) {
+        var allHtml = ""
+        $.each(data.chats, function(i, chat){
+          allHtml += buildHTML(chat);
+        });
+        $('ul.chats').append(allHtml);
+        goBottom();
+      };
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
 
   $('.new_chat').on ('submit', function(e) {
     var chat = $(this);
@@ -42,6 +69,7 @@ $(document).on("turbolinks:load", function() {
       chat[0].reset();
       $('input').prop('disabled', false);
       goBottom();
+      flash();
     })
     .fail(function() {
       alert('error');
@@ -54,22 +82,7 @@ $(document).on("turbolinks:load", function() {
 
   if(window.location.href.match(/chats/)) {
     setInterval(function(){
-      $.ajax({
-        type: 'GET',
-        dataType: 'json',
-      })
-      .done(function(data) {
-        var allHtml = ""
-        data.forEach(function(chat){
-          allHtml += buildHTML(chat);
-        });
-        $('ul.chats').html(allHtml);
-        goBottom();
-      })
-      .fail(function() {
-        alert('error');
-      });
-    }, 10000);
+      autoReload();
+    }, 5000);
   };
-
 });

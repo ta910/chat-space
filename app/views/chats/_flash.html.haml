@@ -1,0 +1,5 @@
+.alert_box
+- flash.each do |key, value|
+  %div(class="alert alert-#{key}")
+    .container
+      = value

@@ -3,8 +3,13 @@ $(document).on("turbolinks:load", function() {
   function goBottom() {
     $('.main_right_message').delay(100).animate({
       scrollTop: $('.main_right_message')[0].scrollHeight
-    }, 1500);
+    }, 3000);
   };
+
+  function flash() {
+    $(".alert_box").append("<div class='alert-notice'>メッセージが送信されました。</div>");
+    $(".alert-notice").fadeOut(1000);
+  }
 
   function buildHTML(chat) {
 
@@ -42,6 +47,7 @@ $(document).on("turbolinks:load", function() {
       chat[0].reset();
       $('input').prop('disabled', false);
       goBottom();
+      flash();
     })
     .fail(function() {
       alert('error');
